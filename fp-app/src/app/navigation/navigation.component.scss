@@ -1,0 +1,9 @@
+a {
+  padding: 5px;
+  margin: 2px;
+  &:hover, &.active {
+    background-color: blueviolet;
+    color: white;
+    border-radius: 3px;
+  }
+}
