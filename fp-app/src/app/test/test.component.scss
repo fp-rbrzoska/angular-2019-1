@@ -1,0 +1,8 @@
+.red {
+  display: block;
+  border: 2px solid red !important;
+}
+:host {
+  display: block;
+  border: 5px solid green;
+}
