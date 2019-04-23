@@ -1,5 +1,4 @@
 <div>
-  <app-product-item [product]="products[0]"></app-product-item>
-  <app-product-item [product]="products[1]"></app-product-item>
-  <app-product-item [product]="products[2]"></app-product-item>
+  <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+
 </div>

@@ -8,6 +8,7 @@ import { Product } from '../models/Product';
 })
 export class ProductItemComponent implements OnInit {
 
+  showDescription = false;
   @Input() product: Product;
   constructor() { }
 
