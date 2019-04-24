@@ -14,10 +14,6 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   @ViewChild('searchInput') searchInput;
   products: Product[];
   constructor(private service: ProductService) {
-    service.products$.subscribe(products => {
-      console.log(products);
-      this.products = products;
-    });
   }
 
   ngOnInit() {
@@ -27,7 +23,7 @@ export class ProductListComponent implements OnInit, AfterViewInit {
     fromEvent(this.searchInput.nativeElement, 'keyup')
     .pipe(
       debounceTime(200),
-      map(ev => ev['target'].value)
+      map((ev: any) => ev.target.value)
     )
     .subscribe(
      q => this.service.search(q)

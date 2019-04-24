@@ -3,7 +3,7 @@
   <app-product-item
   appHighlight="highlight"
   appHighlightBorderColor="red"
-  *ngFor="let product of products"
+  *ngFor="let product of service.products$ | async"
   [product]="product"></app-product-item>
 
 </div>
