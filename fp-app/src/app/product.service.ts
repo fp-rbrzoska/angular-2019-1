@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './models/Product';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,18 @@ export class ProductService {
       price: 5.99
     }
   ];
+  private productsSubject = new BehaviorSubject<Product[]>(this.products);
   constructor() { }
 
-  getProducts() {
-    return this.products;
+  get products$() {
+    return this.productsSubject.asObservable();
+  }
+
+  search(query: string) {
+    const filteredProducts = this.products.filter(
+      product =>  product.name.includes(query) || product.description.includes(query)
+    );
+
+    this.productsSubject.next(filteredProducts);
   }
 }
