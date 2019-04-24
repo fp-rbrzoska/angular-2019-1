@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit, AfterViewInit {
 
   @ViewChild('searchInput') searchInput;
   products: Product[];
-  constructor(private service: ProductService) {
+  constructor(public service: ProductService) {
   }
 
   ngOnInit() {

@@ -9,12 +9,14 @@ import { HttpClient } from '@angular/common/http';
 export class ProductService {
 
   products: Product[];
-  private productsSubject = new BehaviorSubject<Product[]>([]);
+  private productsSubject = new BehaviorSubject<Product[]>(null);
   constructor(private http: HttpClient) {
     this.http.get<Product[]>('http://localhost:3000/products').subscribe(
     p => {
       this.products = p;
-      this.productsSubject.next(p);
+      setTimeout(() => {
+        this.productsSubject.next(p);
+      }, 2000)
     })
    }
 
