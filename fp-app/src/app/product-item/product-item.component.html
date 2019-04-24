@@ -1,6 +1,6 @@
 <div>
   Product <b>{{product.name}}</b>
-  <button (click)="showDescription = !showDescription">
+  <button class="btn btn-primary" (click)="showDescription = !showDescription">
     {{!showDescription? 'Show' : 'Hide'}} description</button>
   <div *ngIf="showDescription">{{product.description}}</div>
 </div>
