@@ -9,6 +9,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { HighlightDirective } from './highlight.directive';
+import { VatPipe } from './vat.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     ContactComponent,
     ProductListComponent,
     ProductItemComponent,
-    NavigationComponent
+    NavigationComponent,
+    HighlightDirective,
+    VatPipe
   ],
   imports: [
     BrowserModule,

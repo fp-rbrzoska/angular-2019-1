@@ -1,4 +1,8 @@
 <div>
-  <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+  <app-product-item
+  appHighlight="highlight"
+  appHighlightBorderColor="red"
+  *ngFor="let product of products"
+  [product]="product"></app-product-item>
 
 </div>

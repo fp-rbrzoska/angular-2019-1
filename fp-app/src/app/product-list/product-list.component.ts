@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit {
       name: 'Product 3',
       price: 5.99
     }
-  ]
+  ];
   constructor() { }
 
   ngOnInit() {
