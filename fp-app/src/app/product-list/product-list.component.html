@@ -1,4 +1,5 @@
 <div>
+  <a class="btn btn-danger" routerLink="/products/add">Add</a>
   <input class="form-control" #searchInput>
   <ng-container *ngIf="(service.products$ | async) as products; else loader">
 

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HighlightDirective } from './highlight.directive';
 import { VatPipe } from './vat.pipe';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductAddComponent } from './product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,16 @@ import { VatPipe } from './vat.pipe';
     ProductItemComponent,
     NavigationComponent,
     HighlightDirective,
-    VatPipe
+    VatPipe,
+    ProductEditComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

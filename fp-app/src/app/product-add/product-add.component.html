@@ -1,0 +1,7 @@
+<form [formGroup]="productsForm" (submit)="save(productsForm.value)">
+    Name: <input formControlName="name">
+    Price: <input type="number" formControlName="price">
+    Descritpion: <textarea  formControlName="description"></textarea>\
+    <button>Submit</button>
+    <div style="color:red" *ngIf="productsForm.invalid && productsForm.dirty">Form has errors!!!</div>
+</form>
