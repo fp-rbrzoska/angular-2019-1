@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { ProductService } from '../product.service';
+import { fromEvent } from 'rxjs';
+import { map, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('searchInput') searchInput;
   products: Product[];
   constructor(private service: ProductService) {
     service.products$.subscribe(products => {
@@ -20,4 +23,14 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit(){
+    fromEvent(this.searchInput.nativeElement, 'keyup')
+    .pipe(
+      debounceTime(200),
+      map(ev => ev['target'].value)
+    )
+    .subscribe(
+     q => this.service.search(q)
+    )
+  }
 }
